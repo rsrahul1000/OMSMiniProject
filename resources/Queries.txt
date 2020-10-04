@@ -66,8 +66,8 @@ INSERT INTO `stockitems`(`item_description`, `item_price`, `unit`, `quantity`) V
 
 /* Adding Purchase Order for Customer No. 1 */
 INSERT INTO `purchaseorder` (`po_number`, `customer_no`, `order_date`, `ship_date`, `is_shipped`) VALUES
-(NULL, '1', '2019-04-01', '2019-04-10', '1'), (NULL, '1', '2019-05-18', '2019-04-24', '0'),
-(NULL, '3', '2020-03-01', '2020-03-04', '0');
+(1, '1', '2019-04-01', '2019-04-10', '1'), (2, '1', '2019-05-18', '2019-04-24', '0'),
+(3, '3', '2020-03-01', '2020-03-04', '0');
 
 /* Orter Items for Purchase Order 1 and 2 */
 INSERT INTO `orderitem` (`stock_item_number`, `number_of_items`, `po_number`) 

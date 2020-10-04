@@ -7,7 +7,7 @@
 >- It a Stock Item is deleted, then all stocks reference present in order items will also be **cascade deleted**.
 
 
-_Note: This repository independent of any IDE project files and contains the relevant code which can be implemented on any IDE_
+_Note: This repository is independent of any IDE project files and contains ONLY the relevant code which can be used to implemented on any IDE_
 
 ## Application Functions
 

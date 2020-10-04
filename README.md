@@ -28,6 +28,11 @@
 >14. Generate bill for customer for a specific order. ( create a file under bills/customerid directory )
 
 
+
+## OMS - ER Diagram
+![Alt text](resources/OMS%20Database%20-%20ER%20Diagram.png?raw=true "Order Management System Database ER Diagram")
+
+
 ## Setup Database
 
 >- Database Can be created in 2 Ways: 

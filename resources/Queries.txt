@@ -53,22 +53,50 @@ CREATE TABLE orderitem(
 );
 
 
+
+
 /* INSERTING IN THE TABLE customer */
-/* 3 Customers Data */
-INSERT INTO `customer`(`name`,`home_phone`,`cell_phone`,`work_phone`,`street`,`city`,`state`,`zip`) VALUES
-('Aadil Kota', '2314569', '9650027328', '7326658212', '21, Hira Villas, Yerwada', 'Lucknow','Uttar Pradesh', '412035'),
-('Alex Khatri', '2115325', '6544260369', '8721510467', '48, Alka Society, Vikhroli', 'Pondicherry', 'Tamil Nadu', '174131'),
-('Rashid Rana', '2356489', '4576623947', '5380447423', '86, Wahid Apartments, Deccan Gymkhana', 'Vadodara', 'Gujarat', '300018');
+/* 5 Customers Data */
+INSERT INTO `customer` (`customer_no`, `name`, `home_phone`, `cell_phone`, `work_phone`, `street`, `city`, `state`, `zip`) VALUES
+(103, 'Carine Schmitt', '2319999', '8888838383', '7321456712', '54, rue Royale', 'Nantes', 'Ouest', '44000'),
+(104, 'Justin Patel', '2311123', '8887738813', '9320006718', '11, Heritage', 'Ponda', 'Goa', '403401'),
+(108, 'Prerna Desai', '9564325978', '9654875321', '2229747452', '99, HarbhajanGunj', 'Srinagar', 'Jammu and Kashmir', '297490'),
+(172, 'Rahul Sharma', '08322536498', '9881876854', '08332659845', 'Mangor Hills', 'Vasco', 'Goa', '403802'),
+(174, 'Kunal Singh', '08652315468', '8652314985', '02256548654', '82, Chhaya Nagar', 'Darjeeling', 'West Bengal', '734101');
 
 /* Adding Stock Items */
-INSERT INTO `stockitems`(`item_description`, `item_price`, `unit`, `quantity`) VALUES 
-('Chicken','200','KG','100'), ('Egg','70','DOZEN','50'), ('Apple','50','KG','40'), ('Orange','30','KG','30'), ('Bread','15','NUMBERS','25');
+INSERT INTO `stockitems` (`stock_item_number`, `item_description`, `item_price`, `unit`, `quantity`) VALUES
+(1, 'Chicken', 200, 'KG', 99),
+(2, 'Egg', 70, 'DOZEN', 50),
+(3, 'Apple', 50, 'KG', 37),
+(4, 'Orange', 30, 'KG', 27),
+(5, 'Bread', 15, 'NUMBERS', 19),
+(36, 'Maggie', 24, 'NUMBERS', 29);
 
-/* Adding Purchase Order for Customer No. 1 */
+/* Adding Purchase Orders */
 INSERT INTO `purchaseorder` (`po_number`, `customer_no`, `order_date`, `ship_date`, `is_shipped`) VALUES
-(1, '1', '2019-04-01', '2019-04-10', '1'), (2, '1', '2019-05-18', '2019-04-24', '0'),
-(3, '3', '2020-03-01', '2020-03-04', '0');
+(1, 103, '2020-07-11', '2020-10-03', 1),
+(2, 104, '2020-07-03', '2020-07-11', 0),
+(3, 103, '2020-09-25', '2020-09-29', 0),
+(10, 103, '2020-08-24', '2020-09-29', 1),
+(24, 108, '2020-10-03', '2020-10-07', 0),
+(25, 108, '2020-10-03', '2020-10-07', 0),
+(26, 108, '2020-10-03', '2020-10-07', 0),
+(27, 104, '2020-10-03', '2020-10-07', 0),
+(28, 104, '2020-10-03', '2020-10-07', 0),
+(29, 103, '2020-10-03', '2020-10-07', 0);
 
-/* Orter Items for Purchase Order 1 and 2 */
-INSERT INTO `orderitem` (`stock_item_number`, `number_of_items`, `po_number`) 
-VALUES ('3', '3', '1'), ('2', '2', '2'), ('1', '2', '3');
+/* Adding Orter Items */
+INSERT INTO `orderitem` (`order_item_number`, `stock_item_number`, `number_of_items`, `po_number`) VALUES
+(1, 3, 50, 1),
+(2, 5, 2, 1),
+(3, 2, 2, 2),
+(4, 1, 3, 3),
+(5, 4, 3, 10),
+(15, 36, 3, 24),
+(16, 36, 1, 25),
+(17, 5, 1, 26),
+(18, 4, 1, 27),
+(19, 1, 1, 27),
+(20, 3, 2, 27),
+(21, 3, 1, 29);

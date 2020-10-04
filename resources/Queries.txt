@@ -1,0 +1,74 @@
+/* TO CREATE DATABASE */
+CREATE DATABASE `order-management_db`;
+
+/* Use the new created Db */
+USE `order-management_db`;
+
+/* TO CREATE Customer TABLE */
+CREATE TABLE customer(
+    customer_no INT NOT NULL AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+    home_phone varchar(15) NULL,
+    cell_phone varchar(15) NOT NULL,
+    work_phone varchar(15) NULL,
+    street varchar(100) NOT NULL,
+    city varchar(50) NOT NULL,
+    state varchar(50) NOT NULL,
+    zip varchar(50) NOT NULL,
+    PRIMARY KEY(customer_no),
+    CONSTRAINT unique_customer UNIQUE (cell_phone)
+);
+
+/* TO CREATE PurchaseOrder TABLE */
+CREATE TABLE purchaseorder(
+    po_number INT NOT NULL AUTO_INCREMENT,
+    customer_no INT NOT NULL,
+    order_date DATE NULL,
+    ship_date DATE NULL,
+    is_shipped BOOLEAN,
+    PRIMARY KEY (po_number),
+    FOREIGN KEY (customer_no) REFERENCES customer(customer_no) ON DELETE CASCADE
+);
+
+/* TO CREATE stockitems TABLE */
+CREATE TABLE stockitems(
+    stock_item_number INT NOT NULL AUTO_INCREMENT,
+    item_description varchar(50) NOT NULL,
+    item_price DOUBLE NOT NULL,
+    unit VARCHAR(50),
+    quantity INT,
+    PRIMARY KEY(stock_item_number),
+    CONSTRAINT unique_stock UNIQUE (item_description)
+);
+
+/* TO CREATE orderitem TABLE */
+CREATE TABLE orderitem(
+    order_item_number INT NOT NULL AUTO_INCREMENT,
+    stock_item_number INT NOT NULL,
+    number_of_items INT NOT NULL,
+    po_number INT NOT NULL,
+    PRIMARY KEY (order_item_number),
+    FOREIGN KEY (stock_item_number) REFERENCES stockitems(stock_item_number) ON DELETE CASCADE,
+    FOREIGN KEY (po_number) REFERENCES purchaseorder(po_number) ON DELETE CASCADE
+);
+
+
+/* INSERTING IN THE TABLE customer */
+/* 3 Customers Data */
+INSERT INTO `customer`(`name`,`home_phone`,`cell_phone`,`work_phone`,`street`,`city`,`state`,`zip`) VALUES
+('Aadil Kota', '2314569', '9650027328', '7326658212', '21, Hira Villas, Yerwada', 'Lucknow','Uttar Pradesh', '412035'),
+('Alex Khatri', '2115325', '6544260369', '8721510467', '48, Alka Society, Vikhroli', 'Pondicherry', 'Tamil Nadu', '174131'),
+('Rashid Rana', '2356489', '4576623947', '5380447423', '86, Wahid Apartments, Deccan Gymkhana', 'Vadodara', 'Gujarat', '300018');
+
+/* Adding Stock Items */
+INSERT INTO `stockitems`(`item_description`, `item_price`, `unit`, `quantity`) VALUES 
+('Chicken','200','KG','100'), ('Egg','70','DOZEN','50'), ('Apple','50','KG','40'), ('Orange','30','KG','30'), ('Bread','15','NUMBERS','25');
+
+/* Adding Purchase Order for Customer No. 1 */
+INSERT INTO `purchaseorder` (`po_number`, `customer_no`, `order_date`, `ship_date`, `is_shipped`) VALUES
+(NULL, '1', '2019-04-01', '2019-04-10', '1'), (NULL, '1', '2019-05-18', '2019-04-24', '0'),
+(NULL, '3', '2020-03-01', '2020-03-04', '0');
+
+/* Orter Items for Purchase Order 1 and 2 */
+INSERT INTO `orderitem` (`stock_item_number`, `number_of_items`, `po_number`) 
+VALUES ('3', '3', '1'), ('2', '2', '2'), ('1', '2', '3');

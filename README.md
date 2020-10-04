@@ -7,6 +7,8 @@
 >- It a Stock Item is deleted, then all stocks reference present in order items will also be **cascade deleted**.
 
 
+_Note: This repository independent of any IDE project files and contains the relevant code which can be implemented on any IDE_
+
 ## Application Functions
 
 >1. Populate Customer And Stock Items Table From File ( Once Inserted, Duplicate values would be ignored if ran again ).
@@ -36,7 +38,7 @@
 ## Setup Database
 
 >- Database Can be created in 2 Ways: 
-  >>  1. Import the order-management_db.sql file from the resources folder directly import in your xampp SQL server.
+  >>  1. Import the order-management_db.sql file from the resources folder directly import in your xampp SQL server. (Recommended)
   >>  2. Manually paste the SQL codes to console from **'Queries.txt'** to create Database, Tables, And Populate them with Test Data. (**Run SQL Codes one by one**).
 >- (Optional) Populating of Table Customers and Stock Item can also be done via Java Code by choosing the option '0' when running the java application, which will populate tables via files present in the resource directory. Here, No need to populate the tables manually via SQL codes.
 >- To check the delayed order functionality, add purchaseorder and orderitem table contents via queries provided in the Queries.txt file as it needs orders of shipDate less than current date for them to be delayed. (Not required if imported the whole DB using .sql file)

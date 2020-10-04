@@ -53,7 +53,7 @@ public class OMSTester {
 	static int purchOrderForBill = 0;
 
 	public static void main(String[] args) {
-		OMSTempTester omsTester = new OMSTempTester();
+		OMSTester omsTester = new OMSTester();
 		int year = 0;
 		int choice = 0, customerNo = 0;
 		do {
@@ -197,7 +197,7 @@ public class OMSTester {
 				}
 				break;
 			case 7:
-				s.hasNextLine();
+				s.nextLine();
 				purchaseOrderList = poService.getAllPurchaseOrders();
 				displayPurchaseOrders("Choose Purchase Order to Ship:  ");
 

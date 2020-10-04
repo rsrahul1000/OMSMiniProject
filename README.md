@@ -36,15 +36,16 @@
 ## Setup Database
 
 >- Database Can be created in 2 Ways: 
-  >>  1. Import the order-management_db.sql file from the resources folder directly in your xampp SQL server.
+  >>  1. Import the order-management_db.sql file from the resources folder directly import in your xampp SQL server.
   >>  2. Manually paste the SQL codes to console from **'Queries.txt'** to create Database, Tables, And Populate them with Test Data. (**Run SQL Codes one by one**).
 >- (Optional) Populating of Table Customers and Stock Item can also be done via Java Code by choosing the option '0' when running the java application, which will populate tables via files present in the resource directory. Here, No need to populate the tables manually via SQL codes.
->- To check the delayed order functionality, add purchaseorder and orderitem table contents via queries provided in the Queries.txt file as it needs orders of shipDate less than current date for them to be delayed.
+>- To check the delayed order functionality, add purchaseorder and orderitem table contents via queries provided in the Queries.txt file as it needs orders of shipDate less than current date for them to be delayed. (Not required if imported the whole DB using .sql file)
 
  
 ## Setup Application
 
->- Clone [OMS Mini Project](https://github.com/rsrahul1000/OMSMiniProject) in eclipse workspace OR Save all the contents in eclipse project.
+>- Create a Eclipse Java Project with Name "OMSMiniProject"
+>- Clone [OMS Mini Project](https://github.com/rsrahul1000/OMSMiniProject) and copy all its contents to eclipse "OMSMiniProject" project.
 >- Add [JDBC jar](https://dev.mysql.com/downloads/file/?id=496255) files to eclipse project to work with JDBC functions.
 >- Add JUnit 4 Library in eclipse for this project to test DAO classes.
 >- Modify config.properties based on your system for DB connection

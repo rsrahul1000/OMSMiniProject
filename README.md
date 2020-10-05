@@ -47,11 +47,14 @@ _Note: This repository is independent of any IDE project files and contains ONLY
 ## Setup Application
 
 >- Create a Eclipse Java Project with Name "OMSMiniProject"
->- Change Directory to Project Folder and Clone [OMS Mini Project](https://github.com/rsrahul1000/OMSMiniProject) using following command in git bash
+>- Change Directory to Project Folder "OMSMiniProject" in local system and Clone [OMS Mini Project](https://github.com/rsrahul1000/OMSMiniProject) into a non-rempty directory(Eclipse Project Directory) using following command in git bash
   >>```bash
-  >> git clone https://github.com/rsrahul1000/OMSMiniProject.git .
+  >> git init
+  >> git remote add origin https://github.com/rsrahul1000/OMSMiniProject.git
+  >> git fetch
+  >> git checkout -t origin/main
   >>```
-  >> Or manually copy all its contents to eclipse "OMSMiniProject" project.
+  >> Or manually download and copy all its contents to eclipse "OMSMiniProject" project directory.
 >- Add [JDBC jar](https://dev.mysql.com/downloads/file/?id=496255) files to eclipse project to work with JDBC functions.
 >- Add JUnit 4 Library in eclipse for this project to test DAO classes.
 >- Modify config.properties based on your system for DB connection

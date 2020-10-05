@@ -63,6 +63,7 @@ _Note: This repository is independent of any IDE project files and contains ONLY
 >>	mysql.username=root
 >>	mysql.password=
 >>```
+>- Make sure your Database server is up and running.
 >- Run OMSTester.java to start executing the application.
 
 
